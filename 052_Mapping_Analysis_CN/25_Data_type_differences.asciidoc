@@ -1,5 +1,5 @@
 [[mapping-analysis]]
-== 映射和分析
+== mapping和analysis
 
 在随意测试使用索引里面的数据的时候, 我们注意到一些奇怪的事情。
 一些数据好像不对: 我们有12条推特在我们的索引里, 并且只有1条推特包含时间串
@@ -18,11 +18,9 @@ GET /_search?q=date:2014         # 0  results !
 但是在 `date` 字段查询年份的时候没有推特返回？
 为什么在 `_all` 字段查询和在 `date` 字段查询结果不一样?
 
-Presumably it is because the way our data has been indexed in the `_all`
-field is different to how it has been indexed in the `date` field.
-So let's take a look at how Elasticsearch has interpreted our document
-structure, by requesting the _mapping_ (or schema definition)
-for the `tweet` type in the `gb` index:
+推测起来可能是因为我们的数据在 `_all` 字段和 `date` 字段上索引的不一样。
+所以，通过请求 `gb` index中 `tweet` type的 _mapping_ (或者说是模式定义)
+来看看ElasticSearch是怎么解释document结构的。
 
 [source,js]
 --------------------------------------------------
@@ -31,7 +29,7 @@ GET /gb/_mapping/tweet
 // SENSE: 052_Mapping_Analysis/25_Data_type_differences.json
 
 
-which gives us:
+执行上面的命令，我们得到的结果如下:
 
 [source,js]
 --------------------------------------------------
@@ -61,20 +59,15 @@ which gives us:
 --------------------------------------------------
 
 
-Elasticsearch has dynamically generated a mapping for us, based on what it
-could guess about our field types. The response shows us that the `date` field
-has been recognised as a field of type `date`. The `_all` field isn't
-mentioned because it is a default field, but we know that the `_all` field is
-of type `string`.
+ElasticSearch为我们的数据动态生成mapping，基于mapping它能猜测到我们的数据类型.
+结果显示， `date` 字段被识别成一个类型是 `date` 的字段。 `_all` 字段没提及是因
+为它是一个默认字段，但是我们知道 `_all` 字段是 `string` 类型的。 
 
-So fields of type `date` and fields of type `string` are indexed differently,
-and can thus be searched differently.  That's not entirely surprising.
-You might expect that each of the core data types -- strings, numbers, booleans
-and dates -- might be indexed slightly differently. And this is true:
-there are slight differences.
+所以 `date` 类型的字段和 `string` 类型的字段的索引方式是不同的，因此搜索也不一样。
+那并不是完全出人意料。你可能觉得这些核心数据类型 -- strings, numbers, boolens和
+dates -- 的索引方式会有些略微不同。是的，它们确实有些不一样。
 
-But by far the biggest difference is actually between fields that represent
-_exact values_ (which can include `string` fields) and fields that
-represent _full text_. This distinction is really important -- it's the thing
-that separates a search engine from all other databases.
+但是到现在为止最大不同是在那些代表 _exact_values_ (包括 `string` 字段)的字段和i
+代表 _full_text_ 的字段之间。这些差别非常重要 -- 这些不同把这个引擎和其他别的数
+据库区分了开来。
 
