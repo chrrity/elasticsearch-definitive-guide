@@ -1,6 +1,7 @@
 === Exact values vs. Full text
 
-ElasticSearch里面的数据可以概括的分为2种类型： _exact values_ (精确值)和 _full text_ (全文本).
+ElasticSearch里面的数据可以概括的分为2种类型： _exact values_ (精确值)和
+_full text_ (全文本).
 Exact Values正如它字面所说的那样，表示精确值。可以是一个日期或者一个用户ID，
 也可以是具体的字符串，比如一个用户名或者一个email地址。
 比如，exact value `"Foo"` 和exact value `"foo"` 是不一样的.
@@ -31,29 +32,24 @@ WHERE name    = "John Smith"
 --------------------------------------------------
 
 查询full text数据就比较微妙。我们不只是简单的问 ``这个文档是否匹配这个查询''
-this document match the query'', 而且还要问 ``这个文档和查询匹配的有多好''.
-也就是说，这个文档和给出的查询有多 _相关_.
+而且还要问 ``这个文档和查询匹配的有多好''.也就是说，这个文档和给出的查询有
+多 _相关_.
 
-We seldom want to match the whole full text field exactly.  Instead, we want
-to search *within* text fields. Not only that, but we expect search to
-understand our *intent*:
+我们很少想去精确的匹配这个full text字段。相反，我们只是想在*文本字段里*搜索。
+甚至我们希望搜索能明白我们的*意图*。
 
-* a search for `"UK"` should also return documents mentioning the `"United
-  Kingdom"`
+* 搜素 `"UK"` 的时候需要返回那些包含 `"United Kingdom"` 的文档。
 
-* a search for `"jump"` should also match `"jumped"`, `"jumps"`, `"jumping"`
-  and perhaps even `"leap"`
+* 搜索 `"jump"` 的时候同样需要匹配 `"jumped"`, `"jumps"`, `"jumping"` 甚至`"leap"`
 
-* `"johnny walker"` should match `"Johnnie Walker"` and `"johnnie depp"`
-  should match `"Johnny Depp"`
+* `"johnny walker"` 需要匹配 `"Johnnie Walker"` ，并且 `"johnnie depp"` 需要匹配 `"Johnny Depp"`
 
-* `"fox news hunting"` should return stories about hunting on Fox News,
-  while `"fox hunting news"` should return news stories about fox hunting.
+* `"fox news hunting"` 需要返回FOX News里面关于打猎的故事，而 `"fox hunting news"` 
+需要返回关于狐狸打猎的新闻故事.
 
-In order to facilitate these types of queries on full text fields,
-Elasticsearch first _analyzes_ the text, then uses the results to build
-an _inverted index_. We will discuss the inverted index and the
-analysis process in the next two sections.
+为了方便这些在full texit字段的各种查询，Elasticsearch首先对这些文本进行 _分词_ ,
+然后使用分词的结果去建立一个 _倒排索引_ 。我们将在接下来的2个部分讨论倒排索引
+和分词过程。
 
 
 
