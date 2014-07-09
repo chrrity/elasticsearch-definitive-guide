@@ -1,10 +1,9 @@
 [[mapping-analysis]]
 == 映射和分析
 
-While playing around with the data in our index, we notice something odd.
-Something seems to be broken: we have 12 tweets in our indices, and only one
-of them contains the date `2014-09-15`, but have a look at the `total` hits
-for the following queries:
+在随意测试使用索引里面的数据的时候, 我们注意到一些奇怪的事情。
+一些数据好像不对: 我们有12条推特在我们的索引里, 并且只有1条推特包含时间串
+`2014-09-15`, 但是看看下面命中的查询:
 
 [source,js]
 --------------------------------------------------
@@ -15,10 +14,9 @@ GET /_search?q=date:2014         # 0  results !
 --------------------------------------------------
 // SENSE: 052_Mapping_Analysis/25_Data_type_differences.json
 
-Why does querying the <<all-field-intro,`_all` field>> for the full date
-return all tweets, and querying the `date` field for just the year return no
-results? Why do our results differ when searching within the `_all` field or
-the `date` field?
+为什么在整个 `date` 上查询 <<all-field-intro,`_all` field>> 返回所有的推特，
+但是在 `date` 字段查询年份的时候没有推特返回？
+为什么在 `_all` 字段查询和在 `date` 字段查询结果不一样?
 
 Presumably it is because the way our data has been indexed in the `_all`
 field is different to how it has been indexed in the `date` field.
