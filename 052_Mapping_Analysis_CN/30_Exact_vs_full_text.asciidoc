@@ -47,7 +47,7 @@ WHERE name    = "John Smith"
 * `"fox news hunting"` 需要返回FOX News里面关于打猎的故事，而 `"fox hunting news"` 
 需要返回关于狐狸打猎的新闻故事.
 
-为了方便这些在full texit字段的各种查询，Elasticsearch首先对这些文本进行 _分词_ ,
+为了方便这些在full text字段上的各种查询，Elasticsearch首先对这些文本进行 _分词_ ,
 然后使用分词的结果去建立一个 _倒排索引_ 。我们将在接下来的2个部分讨论倒排索引
 和分词过程。
 
