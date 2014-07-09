@@ -67,7 +67,7 @@ ElasticSearch为我们的数据动态生成mapping，基于mapping它能猜测�
 那并不是完全出人意料。你可能觉得这些核心数据类型 -- strings, numbers, boolens和
 dates -- 的索引方式会有些略微不同。是的，它们确实有些不一样。
 
-但是到现在为止最大不同是在那些代表 _exact_values_ (包括 `string` 字段)的字段和i
+但是到现在为止最大不同是在那些代表 _exact_values_ (包括 `string` 字段)的字段和
 代表 _full_text_ 的字段之间。这些差别非常重要 -- 这些不同把这个引擎和其他别的数
 据库区分了开来。
 
