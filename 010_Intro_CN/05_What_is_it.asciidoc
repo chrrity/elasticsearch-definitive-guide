@@ -1,7 +1,7 @@
 [[intro]]
 == 搜索，你懂的。。。
 
-Elasticsearch是一个建立在https://lucene.apache.org/core/[Apache Lucene(TM)]
+Elasticsearch是一个建立在 https://lucene.apache.org/core/[Apache Lucene(TM)] 
 基础上的搜索引擎，是一个全文搜索引擎库。Lucene很可能是现有的最高级的，性能
 最好的并且功能齐全的搜索引擎库。二者都是开源的并且专有的。
 
