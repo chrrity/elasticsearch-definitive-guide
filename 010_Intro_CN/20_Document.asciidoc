@@ -43,13 +43,9 @@ Elasticsearch使用 http://en.wikipedia.org/wiki/Json[_JSON_] (或者Javascript
 **************************************************
 
 几乎所有的语言都有把任意数据结构或者对象转换成JSON的模块，只不过每个语言的一些细节
-不太一样。  __. http://www.elasticsearch.org/guide[官方的Elasticsearch客户端]负责JSON
- __ ``serialization'' __ 或者  __ ``marshalling'' __ 的模块都支持对JSON的来回自动转换。
-Almost all languages have modules which will convert arbitrary  data
-structures or objects into JSON for you, but the details are specific  to each
-language. Look for modules which handle JSON __ ``serialization'' __ or __
-``marshalling'' __. http://www.elasticsearch.org/guide[The official
-Elasticsearch clients] all handle conversion to and from JSON for you
-automatically.
+不太一样。查看那些负责JSON __ ``serialization'' __ 或者  __ ``marshalling'' __ 的模
+块 __. http://www.elasticsearch.org/guide[官方的Elasticsearch客户端]块都支持对JSON
+的来回自动转换。
+
 
 **************************************************
