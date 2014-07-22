@@ -1,11 +1,10 @@
-=== Analytics
+=== 分析
 
-Finally, we come to our last business requirement: allow managers to run
-analytics over the employee directory.  Elasticsearch has functionality called
-_aggregations_, which allows you to generate sophisticated analytics over your
-data. It is similar to `GROUP BY` in SQL, but much more powerful.
+终于，我们来到了我们的最后一个业务需求：允许管理人员对员工目录进行分析。Elasticsearch
+有一个被称为 _聚合_ 的功能，它能对数据进行复杂的分析。类似于SQL里面的 `GROUP BY`，但是
+功能更强大。
 
-For example, let's find the most popular interests enjoyed by our employees:
+比如，让我们找出员工们最喜欢的兴趣爱好：
 
 [source,js]
 --------------------------------------------------
@@ -20,7 +19,7 @@ GET /megacorp/employee/_search
 --------------------------------------------------
 // SENSE: 010_Intro/35_Aggregations.json
 
-Ignore the syntax for now and just look at the results:
+现在先忽略语法只是看下结果：
 
 [source,js]
 --------------------------------------------------
@@ -48,11 +47,9 @@ Ignore the syntax for now and just look at the results:
 }
 --------------------------------------------------
 
-We can see that two employees are interested in music, one in forestry and one
-in sports.  These aggregations are not precalculated -- they are generated on
-the fly from the documents which match the current query. If we want to know
-the popular interests of people called ``Smith'', we can just add the
-appropriate query into the mix:
+我们可以看到2个员工对音乐感兴趣，一个对林业感兴趣，还有1个对运动感兴趣。这些聚合
+不是提前计算好的 -- 他们是根据匹配当前查询的文档飞速计算出来的。如果我们想知道名
+为 ``Smith'' 的员工的兴趣爱好，我们只需要往查询里增加一点合适的条件就行：
 
 [source,js]
 --------------------------------------------------
@@ -74,7 +71,7 @@ GET /megacorp/employee/_search
 --------------------------------------------------
 // SENSE: 010_Intro/35_Aggregations.json
 
-The `all_interests` aggregation has changed to include only documents matching our query:
+这个 `all_interests` 聚集被改成了只包含跟查询匹配的文档：
 
 [source,js]
 --------------------------------------------------
@@ -93,8 +90,7 @@ The `all_interests` aggregation has changed to include only documents matching o
   }
 --------------------------------------------------
 
-Aggregations allow hierarchical rollups too.  For example, let's find the
-average age of employees who share a particular interest:
+聚集也可以进行分层的归纳。比如，我们要查找具有相同特定兴趣的员工的平均年龄：
 
 [source,js]
 --------------------------------------------------
@@ -114,8 +110,7 @@ GET /megacorp/employee/_search
 --------------------------------------------------
 // SENSE: 010_Intro/35_Aggregations.json
 
-The aggregations that we get back are a bit more complicated, but still fairly
-easy to understand:
+我们获得的结果就变得有点复杂了，但是仍然是很好理解：
 
 [source,js]
 --------------------------------------------------
@@ -147,11 +142,10 @@ easy to understand:
   }
 --------------------------------------------------
 
-The output is basically an enriched version of the first aggregation we ran.
-We still have a list of interests and their counts, but now each interest has
-an additional `avg_age` which shows the average age for all employees having
-that interest.
+这个输出是我们运行的第一个聚合的加强版。我们仍然能得到一系列的兴趣以及它们
+的个数，但是每个兴趣多了一个 `avg_age` ，这个表示的是所有具有那个兴趣的员工
+的平均年龄。
 
-Even if you don't understand the syntax yet, you can easily see how very
-complex aggregations and groupings can be accomplished using this feature.
-The sky is the limit as to what kind of data you can extract!
+即使你现在还不理解语法，你仍然能很容易的看到通过这个属性能完成各种非常复杂的
+聚合和分组。任何类型的数据都可以提取。天空才是它的极限。
+
