@@ -1,0 +1,12 @@
+include::052_Mapping_Analysis_CN/25_Data_type_differences.asciidoc[]
+
+include::052_Mapping_Analysis_CN/30_Exact_vs_full_text.asciidoc[]
+
+include::052_Mapping_Analysis_CN/35_Inverted_index.asciidoc[]
+
+include::052_Mapping_Analysis_CN/40_Analysis_CN.asciidoc[]
+
+include::052_Mapping_Analysis_CN/45_Mapping.asciidoc[]
+
+include::052_Mapping_Analysis_CN/50_Complex_datatypes.asciidoc[]
+
