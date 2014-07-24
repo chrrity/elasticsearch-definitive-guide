@@ -1,26 +1,25 @@
 [[distributed-cluster]]
-== Life inside a Cluster
+== 集群概述
 
-.Supplemental Chapter
+.补充章节
 ****
 
-As mentioned earlier, this is the first of several ``supplemental'' chapters
-about how Elasticsearch operates in a distributed environment.  In this
-chapter we explain commonly used terminology like _cluster_, _node_ and
-_shard_, the mechanics of how Elasticsearch scales out, and how it deals with
-hardware failure.
+就像前面提到的一样，这是关于Elasticsearch是如何在分布式环境运行的第一个 ``补充'' 
+章节。在这个章节我们会解释一些通用术语比如 _集群_ ， _节点_ 和 _分片_ ，Elasticsearch
+如何向外扩展的机制，以及它如何处理硬件错误。
 
-Although this chapter is not required reading -- you can use Elasticsearch for
-a long time without worrying about shards, replication and failover -- it will
-help you to understand the processes at work inside Elasticsearch. Feel free
-to skim through the chapter and to refer to it again later.
+尽管如此，这个章节也不是必读的 -- 你可以在很长一段时间内使用Elasticsearch而不需要担心
+分片，复制以及故障恢复 -- 本章将帮助你深入理解Elasticsearch的运行过程。你可以快速浏览
+完本章然后再需要的时候再回头来看。
 
 ****
 
-Elasticsearch is built to be always available, and to scale with your needs.
-Scale can come from buying bigger servers (_vertical scale_ or _scaling up_)
-or from buying more servers (_horizontal scale_ or _scaling out_).
+Elasticsearch是被设计成高可用以及按需扩展的。扩展规模可以通过购买更大的机器(垂直扩展 
+_vertical scale_ 或者 _scaling up_ )或者购买更多的相同机器(水平扩展 _horizontal scale_ 
+或者 _scaling out_ )
 
+虽然Elasticsearch能够从更强大的硬件中得益，但是垂直扩展有其自身的限制。真正的可扩展性
+来自水平扩展 -- 能够给集群增加更多的节点以及在节点间分散压力和可靠性。
 While Elasticsearch can benefit from more powerful hardware, vertical scale
 has its limits. Real scalability comes from horizontal scale -- the ability to
 add more nodes to the cluster and to spread load and reliability between them.
