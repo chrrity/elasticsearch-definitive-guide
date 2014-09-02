@@ -1,37 +1,12 @@
-[[relations]]
-== Related Documents (TODO)
+include::400_Relationships/10_Intro.asciidoc[]
 
-Unlike a relational database which has normalized data, the data stored in a
-NoSQL database is highly denormalised, and each document is independent.
-However, Elasticsearch provides two features which enable us to run queries
-whose results depend on the relationship between two separate documents:
-Nested documents and Parent-child relationships.
+include::400_Relationships/15_Application_joins.asciidoc[]
 
-This chapter explains the use case for each of these features and the
-extensions to the interface that allows us to take advantage of these
-relationships.
+include::400_Relationships/20_Denormalization.asciidoc[]
 
-=== Limitations of a NoSQL database
-.
+include::400_Relationships/22_Top_hits.asciidoc[]
 
-=== Parent-child vs Nested documents
-* use cases
-* pros and cons
+include::400_Relationships/25_Concurrency.asciidoc[]
 
-=== Nested documents
-* Mapping
-* Indexing, retrieving and deleting documents
-* Searching
-** nested queries
-[[nested-filter]]
-** nested filters
-** nested facets
-
-=== Parent-child relationship
-* Mapping
-* Indexing, retrieving and deleting documents
-* Searching
-** has_child query / filter
-** has_parent query / filter
-** top_children query
+include::400_Relationships/26_Concurrency_solutions.asciidoc[]
 

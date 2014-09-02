@@ -28,6 +28,7 @@ include::060_Distributed_Search.asciidoc[]
 
 include::070_Index_Mgmt.asciidoc[]
 
+include::075_Inside_a_shard.asciidoc[]
 
 // Part 2
 
@@ -44,8 +45,6 @@ include::120_Proximity_Matching.asciidoc[]
 include::130_Partial_Matching.asciidoc[]
 
 include::170_Relevance.asciidoc[]
-
-include::180_Non_Prose.asciidoc[]
 
 
 // Part 3
@@ -66,8 +65,6 @@ include::260_Synonyms.asciidoc[]
 
 include::270_Fuzzy_matching.asciidoc[]
 
-include::280_Suggesters.asciidoc[]
-
 // Part 4
 
 include::301_Aggregation_Overview.asciidoc[]
@@ -82,29 +79,29 @@ include::305_Significant_Terms.asciidoc[]
 
 include::306_Practical_Considerations.asciidoc[]
 
+
 // Part 5
-[[more-than-search]]
-= More than search (TODO)
+include::04_Geolocation.asciidoc[]
 
-include::310_Geolocation.asciidoc[]
+include::310_Geopoints.asciidoc[]
 
-include::320_Percolation.asciidoc[]
+include::320_Geohashes.asciidoc[]
 
-include::330_Scripting.asciidoc[]
+include::330_Geo_aggs.asciidoc[]
+
+include::340_Geoshapes.asciidoc[]
 
 // Part 6
 
-[[modelling-your-data]]
-
-= Modelling your data (TODO)
+include::06_Modeling_your_data.asciidoc[]
 
 include::400_Relationships.asciidoc[]
 
+include::402_Nested.asciidoc[]
+
+include::404_Parent_Child.asciidoc[]
+
 include::410_Scaling.asciidoc[]
-
-include::420_Time_Based.asciidoc[]
-
-include::430_Index_Per_User.asciidoc[]
 
 // Part 7
 
@@ -115,8 +112,6 @@ include::430_Index_Per_User.asciidoc[]
 include::500_Cluster_Admin.asciidoc[]
 
 include::510_Deployment.asciidoc[]
-
-include::520_Lucene.asciidoc[]
 
 [[TODO]]
 [appendix]

@@ -12,10 +12,12 @@ http://www.elasticsearch.org/download/[elasticsearch.org/download].
 
 [source,sh]
 --------------------------------------------------
-curl -L -O http://download.elasticsearch.org/PATH/TO/LATEST/$VERSION.zip
+curl -L -O http://download.elasticsearch.org/PATH/TO/VERSION.zip <1>
 unzip elasticsearch-$VERSION.zip
 cd  elasticsearch-$VERSION
 --------------------------------------------------
+<1> Fill in the URL for the latest version available on
+    http://www.elasticsearch.org/download/[elasticsearch.org/download].
 
 TIP: When installing Elasticsearch in production, you can use the method
 described above, or the Debian or RPM packages provided on the
@@ -54,6 +56,7 @@ disable data collection with this command:
 echo 'marvel.agent.enabled: false' >> ./config/elasticsearch.yml
 --------------------------------------------------
 
+[[running-elasticsearch]]
 === Running Elasticsearch
 
 Elasticsearch is now ready to run. You can start it up in the foreground
@@ -81,8 +84,8 @@ You should see a response like this:
    "status": 200,
    "name": "Shrunken Bones",
    "version": {
-      "number": "1.1.0",
-      "lucene_version": "4.7"
+      "number": "1.4.0",
+      "lucene_version": "4.10"
    },
    "tagline": "You Know, for Search"
 }
@@ -101,3 +104,28 @@ and to provide failover and scale, although a single node can form a cluster
 all by itself.
 
 ****
+
+You should change the default `cluster.name` to something appropriate to you,
+like your own name, to stop your nodes from trying to join another cluster on
+the same network with the same name!
+
+You can do this by editing the `elasticsearch.yml` file in the `config/`
+directory, then restarting Elasticsearch.  When Elasticsearch is running in
+the foreground, you can stop it by pressing `Ctrl-C`, otherwise you can shut
+it down with the `shutdown` API:
+
+[source,sh]
+--------------------------------------------------
+curl -XPOST 'http://localhost:9200/_shutdown'
+--------------------------------------------------
+
+
+==== Viewing Marvel and Sense
+
+If you installed the <<marvel,Marvel>> management and monitoring tool you can
+view it in a web browser by visiting:
+http://localhost:9200/_plugin/marvel/.
+
+You can reach the *Sense* developer console either by clicking on the ``Marvel
+dashboards'' dropdown in Marvel, or by visiting:
+http://localhost:9200/_plugin/marvel/sense/.

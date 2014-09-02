@@ -1,24 +1,14 @@
-[[synonyms]]
-== Synonyms
+include::260_Synonyms/10_Intro.asciidoc[]
 
-TODO
+include::260_Synonyms/20_Using_synonyms.asciidoc[]
 
-=== Defining synonyms
+include::260_Synonyms/30_Synonym_formats.asciidoc[]
 
-TODO
+include::260_Synonyms/40_Expand_contract.asciidoc[]
 
-=== Expand or Contract
+include::260_Synonyms/50_Analysis_chain.asciidoc[]
 
-Compare two approaches
+include::260_Synonyms/60_Multi_word_synonyms.asciidoc[]
 
-=== Beware the graph
+include::260_Synonyms/70_Symbol_synonyms.asciidoc[]
 
-TODO
-
-=== Synonyms and `query_string`
-
-TODO
-
-=== Symbol synonyms
-
-mapping char filter
